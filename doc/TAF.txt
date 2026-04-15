@@ -1,0 +1,58 @@
+1)les liens dans le menu 20 minutes (4)
+2)le lien pour voir mes equipements dans le dashboard 10 minutes (2) réalisation 6 minutes
+3)les images dans les interfaces 1H  (1) réalisation 1H
+4)mettre le logo à plusieurs endroits (menu,dashboard,connexion et enregistrement) 30 minutes (9)
+5)modification des equipements  ( 20 minutes)  (3) réalisation 20 minutes
+6)interface d'affichage de fournisseurs (1h) (5) réalisation 32 minutes
+7)amélioration du menu et le menu du dashboard(en mode connecté) (1H30) (12) réalisation 1H13
+8)les pages contact et à propos (2H) (13) réalisation 1H14
+9)enlever les éléments inutiles (1H30) (7) réalisation 1H25 
+10)mettre le mot de passe en type password(1H30)  (10) réalisation 5H30 (besoin d'étudier la documentation adéquate)
+11)possibilité de changer de mot de passe ( 45 minutes) (11) réalisation 1H13
+12)mettre les images mpesa et autres dans l'interface de paiement mobileMoney (30 minutes) (8) réalisation 1h 20 (design poussé)
+13) ajouter la denomination sociale dans les parametres ou le processus d'enregistrement des fournisseurs de matériels 30 minutes (6) réalisation 45 minutes
+
+ordre de priorité{ 12,4,10,11,8)
+total: 11 H 05
+priorité: 04H50
+
+Les fonctionnalités administrateurs{
+nombre d'utilisateurs
+nombre de fournisseurs et de client
+liste des fournisseurs (recherche)
+liste des utilisateurs(recherche)
+nombre de locations en cours
+gestion des catégories
+rjv des locations (selon les intervalles de temps, selon les catégories) montant de transaction et commissions
+}
+
+TAF administrateurs
+{
+	créer le module d'administration 30 minutes réalisation 15 minutes
+	protéger le module d'administration pour un accès reservés au utilisateurs isStaff (admin) 45 minutes
+	nombre d'utlisateurs 30 minutes réalisation 1h
+	liste des fournisseurs 30 minutes réalisations 38 minutes
+	liste des équipements selon les catégories 45 minutes  (07H56 à 08H12) réalisation 1H20
+	rapport(statistiques et liste) d'ajouts d equipements 1h réalisation 2H25
+	nombre (rapport) de nouveaux enregistrements selon les intervalles de temps et selon les profils (clients,fournisseurs) 1H45 réalisation 52 minutes
+	gestion des catégories(ajout, modification et suppressions) 45 minutes réalisation 1H20
+	Voir les locations en cours et particulièrement récentes conclues dans les dernières 48heures : 1H réalisation 45 minutes
+	rjv{
+		vente du jour (montant total commissions en grand ET  montant total des transactions en moyen): 45 minutes réalisation 16 minutes
+		vente à une date précise 45 minutes réalisation 16 minutes
+		vente selon un intervalle de temps 45 minutes réalisation 16 minutes
+		
+		
+	
+	}
+
+Durée de réalisation: 9h45
+}
+
+
+TAF ADMIN SUP{
+Meilleure vente journalière (du mois, de l'année et de tous les temps) 1H
+	détails des fournisseurs (pourrait-être utile pour un service client ou support technique
+	détails des utilisateurs 
+	possibilité de suspendre un admin(utlisateur aussi)
+}

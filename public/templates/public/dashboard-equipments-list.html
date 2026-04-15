@@ -1,0 +1,91 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">Mateclic</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    {% block content %}
+    <!-- Hero Section -->
+    {% for equipment in equipmentsList %}
+    <section id="service-details" class="service-details section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row">
+          <div class="col-lg-7">
+
+            <div class="service-overview" data-aos="fade-up" data-aos-delay="200">
+              <img src="/media/{{ equipment.image }}" dfrc="{% static 'public/assets/img/construction/project-5.webp' %}" alt="Commercial Construction Project" class="service-image img-fluid">
+
+              
+            </div>
+
+            
+
+          </div>
+
+          <div class="col-lg-5">
+            <div class="service-sidebar" data-aos="fade-left" data-aos-delay="200">
+
+              <div class="quick-info-card">
+                <div class="info-header">
+                  <h3>{{ equipment.name}}</h3>
+                  <span class="info-badge">{{ equipment.price}} {{ equipment.currency}}</span>
+                </div>
+                <div class="info-content">
+                  <div class="info-row">
+                    <span class="label">Catégorie</span>
+                    <span class="value">{{ equipment.category}}</span>
+                  </div>
+                   <div class="info-row">
+                    <span class="label">Localisation</span>
+                    <span class="value">{{ equipment.location}}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Fréquence tarifaire</span>
+                    <span class="value">{{ equipment.pricingFrequency}}</span>
+                  </div>
+                 
+                </div>
+              </div>
+              <div>
+                <a href="{% url 'dashboard-equipment-update' equipment.id %}" class="btn btn-secondary">Modifier</a>
+              </div>
+
+              
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- /About Section -->
+    {% endfor %}
+
+    {% endblock %}
+
+  </main>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

@@ -1,0 +1,99 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">Mateclic</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+   {% block content %}
+    <section id="about" class="contact section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-main-wrapper">
+                <div class="contact-content">
+                    <div class="" data-aos="fade-up" data-aos-delay="400">
+                        <h3>Création de compte</h3>
+                        
+                        <p>Veuillez choisir un profil</p>
+
+                        <form  method="post" class="row" novalidate>
+                            {% csrf_token %}
+                            <div class="col-md-4 card" style="text-align:center;background-color: #dfdfdf;margin-left: -6px;">
+                              <div class="" style="width: 20px;margin: auto;">
+                                <input class="form-check-input" type="radio" name="role" id="customerRadio" value="customer" checked>
+  
+                              </div>
+                              <br/>
+
+                              <img style="width: 120px;margin: auto;" src="{% static 'public/assets/img/mobileMoney.png' %}">
+                                  <br/>
+                                  <br/>
+                              <p style="font-family:  Arial, Helvetica, sans-serif;">
+                                    Client
+                              </p>
+                            </div>
+                            <div class="col-md-4 card" style="text-align:center;background-color: #dfdfdf;margin-left: 2px;margin-right: 2px;">
+                              <div class="" style="width: 20px;margin: auto;">
+                                <input class="form-check-input" type="radio" name="role" id="providerRadio" value="provider" >
+  
+                              </div>
+                              <br/>
+
+                              <img style="width: 120px;margin: auto;" src="{% static 'public/assets/img/mobileMoney.png' %}">
+                                  <br/>
+                                  <br/>
+                              <p style="font-family:  Arial, Helvetica, sans-serif;">
+                                    Fournisseur
+                              </p>
+                            </div>
+                            
+                            
+                            <div class="php-email-form">
+                              
+                                 <div class="form-group" style="padding-bottom: 15px;">
+                                   
+                                      
+                                    
+                                   
+                                 </div>
+                            <div class="hero-actions aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                                <input type="submit" class="btn btn-getstarted" style="background: #e96308;color: #ffffff;" value="Continuer">
+                            </div>
+                            </div>
+                           
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section><!-- /About Section -->
+
+    <!-- Services Section -->
+   
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  {% endblock %}
+</main>

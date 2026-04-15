@@ -1,0 +1,113 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">Mateclic</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="{% url 'login' %}">Se connecter</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    {% block content %}
+    <!-- Hero Section -->
+<!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url({% static 'public/assets/img/construction/showcase-2.webp' %});">
+      <div class="container position-relative">
+        <h1>A propos</h1>
+        <p>Mateclic est là pour vous aider à accéder au matériel dont vous avez besoin en toute facilité </p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'home' %}">Accueil</a></li>
+            <li class="current">A propos</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center">
+
+          <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-delay="200">
+            <div class="content">
+              <h2 class="section-heading mb-4">Pour mieux vous servir</h2>
+              <p class="lead-text mb-4">Mateclic est une plateforme numérique qui met en relation les fournisseurs de matériels et leurs potentiels clients</p>
+              <p class="description-text mb-5">Cette plateforme vise à faciliter l'accès à des matériels complexes ou ordinaires, rares ou communs afin de faciliter la vie.Cela couvre plusieurs domaines tel que l'industrie lourde et légère, l'automobile, la construction et autres</p>
+              <p class="description-text mb-5">Pour les fournisseurs de matériel, elle vise à augmenter leur chiffre d'affaire en leur donnant accès à un nombre plus large de clients et avec une promotion continue</p>
+              <p>Cette plateforme a été initiée et fondée par Cedrick Malanda en 2025 et ne cesse de jours en jours de rassembler de milliers de nouveaux utilisateurs quotidiennement</p>
+
+              <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                  <div class="stat-number">100000+</div>
+                  <div class="stat-label">Clients</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="350">
+                  <div class="stat-number">500+</div>
+                  <div class="stat-label">Fournisseurs</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                  <div class="stat-number">98%</div>
+                  <div class="stat-label"> Satisfaction Client</div>
+                </div>
+              </div>
+
+              
+              <div class="cta-section" data-aos="fade-up" data-aos-delay="450">
+                <a href="{% url 'contact' %}" class="cta-link">
+                  Contactez-nous
+                  <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+              </div>
+            
+            </div>
+          </div>
+
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="200">
+            <div class="image-section">
+              <div class="main-image">
+                <img src="{% static 'public/assets/img/construction/project-4.webp' %}" alt="Construction project showcase" class="img-fluid">
+              </div>
+              <div class="floating-badge" data-aos="zoom-in" data-aos-delay="500">
+                <div class="badge-content">
+                  <i class="bi bi-award"></i>
+                  <div class="badge-text">
+                    <span class="badge-title">Quality Certified</span>
+                    <span class="badge-subtitle">Since 1999</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    {% endblock %}
+
+  </main>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

@@ -1,0 +1,141 @@
+{% extends 'adminmodule/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">Mateclic</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    {% block content %}
+    <!-- Hero Section -->
+   <section id="services" class="services section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="services-grid">
+
+          <div class="service-item featured" data-aos="fade-up" data-aos-delay="150">
+            <div class="featured-badge"><a href="#" class="" style="color: white;"><i class="bi bi-people"></i></a></div>
+            <div class="service-number"><i class="bi bi-person-check"></i></div>
+            <div class="service-icon">
+              <h3>{{ usersNumber }}</h3>
+            </div>
+            <h3><a href="{% url 'dashboard-equipments-list' %}" class="service-cta">utilisateurs</a></h3>
+            <p>Nombre total d'utilisateurs inscrits sur la plateforme</p>
+            <a href="{% url 'dashboard-equipment-add' %}" class="service-cta">
+              <span>Aperçu de la liste</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item featured" data-aos="fade-up" data-aos-delay="150">
+            <div class="featured-badge"><a href="#" class="" style="color: white;"><i class="bi bi-people"></i></a></div>
+            <div class="service-number"><i class="bi bi-person-check"></i></div>
+            <div class="service-icon">
+              <h3>{{ usersNumber }}</h3>
+            </div>
+            <h3><a href="{% url 'dashboard-equipments-list' %}" class="service-cta">Fournisseurs</a></h3>
+            <p>Nombre total de fournisseurs inscrits sur la plateforme</p>
+            <a href="{% url 'admin-providers-list' %}" class="service-cta">
+              <span>Voir la liste</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-number">02</div>
+            <div class="service-icon">
+              <i class="bi bi-house-heart"></i>
+            </div>
+            <h3>Locations en cours</h3>
+            <p>Connaître les locations en cours</p>
+            <a href="{% url 'admin-rents-stats' %}" class="service-cta">
+              <span>Voir les stats</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item featured" data-aos="fade-up" data-aos-delay="250">
+            <div class="featured-badge">Premium</div>
+            <div class="service-number">03</div>
+            <div class="service-icon">
+              <i class="bi bi-gear-wide-connected"></i>
+            </div>
+            <h3>Portefeuille</h3>
+            <p>Voir les entrées et les retraits effectués ainsi que mon solde actuel</p>
+            <a href="{% url 'admin-revenue' %}" class="service-cta">
+              <span>Consulter</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-number">04</div>
+            <div class="service-icon">
+              <i class="bi bi-clipboard2-check"></i>
+            </div>
+            <h3>Project Consulting</h3>
+            <p>Expert guidance through every phase of construction with strategic planning and professional oversight.</p>
+            <a href="service-details.html" class="service-cta">
+              <span>Explore Service</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="350">
+            <div class="service-number">05</div>
+            <div class="service-icon">
+              <i class="bi bi-tools"></i>
+            </div>
+            <h3>Renovation &amp; Remodeling</h3>
+            <p>Transform existing spaces with modern upgrades while preserving structural integrity and aesthetic appeal.</p>
+            <a href="service-details.html" class="service-cta">
+              <span>Explore Service</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-number">06</div>
+            <div class="service-icon">
+              <i class="bi bi-arrows-fullscreen"></i>
+            </div>
+            <h3>Site Development</h3>
+            <p>Complete site preparation including excavation, grading, and utility installation for optimal project foundation.</p>
+            <a href="service-details.html" class="service-cta">
+              <span>Explore Service</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+    {% endblock %}
+
+  </main>
+
+ 
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

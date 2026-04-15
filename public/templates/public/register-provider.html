@@ -1,0 +1,75 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">iConstruction</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+   {% block content %}
+    <section id="about" class="contact section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="" style="padding-top: 150px;padding-bottom: 100px;">
+                <div class="row">
+                  <div class="div-aside col-md-5 " style="opacity: 0.6;">
+                      <div style="width: 100%;" >
+                        <img src="{% static 'public/assets/img/logo_mateclic.png'  %}" style="width: 100%;">
+                      </div>
+                      <div style="width: 100%;">
+                        <img src="{% static 'public/assets/img/img_aside_long.jpg'  %}" style="width: 100%;">
+                      </div>
+                    </div>
+                    <div class="contact-form-container col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <h3>Créer votre compte</h3>
+                        <p>Prière de remplir les champs ci-dessous .</p>
+
+                        <form  method="post" class="" >
+                            {% csrf_token %}
+                            {{ form.non_field_errors }} 
+                            <div class="php-email-form">
+                                 {{form.as_p}}
+                            <div class="hero-actions aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                              <p>En créant votre compte, vous acceptez <a href="{% url 'terms-of-use' %}" target="_blank">nos conditions générales d'utilisation</a> et notre <a href="{% url 'privacy-policy' %}"  target="_blank">politique de confidentialité</a>.</p>
+                             
+                            </div>
+                            <div class="hero-actions aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                                <input type="submit" class="btn btn-getstarted" style="background: #e96308;color: #ffffff;" value="S'inscrire">
+                            </div>
+                            </div>
+                           
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section><!-- /About Section -->
+
+    <!-- Services Section -->
+   
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  {% endblock %}
+</main>

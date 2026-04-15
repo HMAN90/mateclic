@@ -1,0 +1,9 @@
+jeudi
+
+enregistrement utilisateur et authentification 2H
+admin ajout de catégorie                        30 MINUTES
+dashboard ajout de matériel(2H) et tarification (1H)   
+
+vendredi
+affichage des matériels en vrac et selon les catégories(liste et details) 2H30
+location de matériel et paiement  3H

@@ -1,0 +1,155 @@
+{% extends 'adminmodule/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">iConstruction</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    {% block content %}
+    <!-- Hero Section -->
+   <section id="services" class="services section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+           <form method="POST">
+             {% csrf_token %}
+          <div class="row justify-content-end g-3">
+          <span class="font-bd col-7" style="font-size: 30px;"><i class='bx bx-filter' style="font-size:30px"></i> Filtres</span>
+           <div class="col-12">
+             
+            </div>
+            <br>
+        <!-- <div class="col-5">
+          <input type="text" class="p-2 pl-3 form-control datepicker" autocomplete="off" placeholder="date debut" name="dateDebut" style="background: #ffffff!important;">
+        </div> -->
+
+       
+        <div class="col-2">
+          <div class="form-group">
+            <label>Catégorie</label>
+            <select  class="p-2 pl-3 form-control " autocomplete="off"  name="categoryId" style="background: #ffffff!important;">
+              <option value="all"  >Tous les enregistrements</option>
+              <option value="confirmed"  >Locations confirmées</option>
+              <option value="created"  >Locations non confirmés</option>
+             
+              
+            </select>
+
+          </div>
+        </div>
+        
+        <div class="col-2">
+          <div class="form-group">
+            <label>Périodicité</label>
+            <select  class="p-2 pl-3 form-control " autocomplete="off"  name="periodicity" id="periodicity" style="background: #ffffff!important;" onchange="periodicityChange()">
+              <option value="daily">Journalière</option>
+              <option value="interval">Intervalle</option>
+            </select>
+
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" class=" form-control " autocomplete="off" placeholder="Affichage par date" name="reportDate" id="reportDate" style="background: #ffffff!important;" required>
+
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="form-group">
+            <label>Date de début</label>
+            <input type="date" class="p-2 pl-3 form-control " autocomplete="off" placeholder="Affichage par date" name="dateStart" id="dateStart" style="background: #ffffff!important;" required disabled>
+
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label>Date de fin</label>
+            <input type="date" class="p-2 pl-3 form-control " autocomplete="off" placeholder="Affichage par date" name="dateEnd" id="dateEnd" style="background: #ffffff!important;" required disabled>
+
+          </div>
+        </div>
+        
+        <div class="col-2" style="display:none;">
+          <input type="date" class="p-2 pl-3 form-control datepicker" autocomplete="off" placeholder="Affichage par date" name="today" style="background: #ffffff!important;">
+        </div>
+        <div class="col-1 ">
+          <div class="form-group">
+          <label style="opacity:0">Just me</label>
+          <input type="submit" class="form-control btn  btn-primary" value="GO" name="SEARCH" style="border-radius: 0px;border: solid 0px;">
+
+          </div>
+                  </div>
+      </div>
+        </form>
+      </div>
+
+      <div class="container">
+        <div>
+          <h2>{{rentsRecordsNumber}}</h2>
+        </div>
+<table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>#</td><td>Equipement</td> <td>Propriétaire</td><td>Entreprise</td> <td>Tarif</td> <td>Durée</td> <td>Unités</td> <td>Montant total</td>
+                </tr>
+            </thead>
+            <tbody>
+               
+                {% for record in rentsList %}
+                <tr>
+                    <td>{{forloop.counter}}</td><td>{{record.equipment.name}}</td> <td> {{record.equipment.owner.first_name}} {{record.equipment.owner.last_name}}</td> <td>{{record.equipment.owner.companyName}}</td><td>{{record.equipment.price}} {{record.equipment.currency}}</td><td>{{record.duration}}</td> <td>{{record.quantity}}</td><td>{{record.rentTotalAmount}}</td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+      </div>
+
+    </section><!-- /Services Section -->
+    {% endblock %}
+
+  </main>
+
+ {% block otherscripts %}
+<script>
+  function periodicityChange(){
+    if(document.querySelector("#periodicity").value=="interval"){
+      document.querySelector("#reportDate").disabled = true ;
+      document.querySelector('#dateStart').disabled = false ;
+      document.querySelector('#dateEnd').disabled = false ;
+    }
+    else if(document.querySelector("#periodicity").value=="daily"){
+      document.querySelector("#reportDate").disabled = false ;
+      document.querySelector('#dateStart').disabled = true ;
+      document.querySelector('#dateEnd').disabled = true ;
+    }
+  }
+
+    
+</script>
+ {% endblock %}
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

@@ -1,0 +1,146 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">Mateclic</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="{% url 'login' %}">Se connecter</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    {% block content %}
+    <!-- Hero Section -->
+  
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row align-items-center">
+
+          <div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-delay="200">
+            <div class="content">
+              <h2 class="section-heading mb-4">{{ provider.firstName }} {{ provider.lastName }}</h2>
+              <p class="lead-text mb-4"></p>
+              <p class="description-text mb-5">{{ provider.summary }}</p>
+
+              <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                  <div class="stat-number">25+</div>
+                  <div class="stat-label">Equipements</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="350">
+                  <div class="stat-number">500+</div>
+                  <div class="stat-label">Locations conclues</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                  <div class="stat-number">98%</div>
+                  <div class="stat-label">Expérience</div>
+                </div>
+              </div>
+
+           
+            </div>
+          </div>
+
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="200">
+            <div class="image-section">
+              <div class="main-image">
+                <img src="{% static 'public/assets/img/construction/project-4.webp' %}" alt="Construction project showcase" class="img-fluid">
+              </div>
+              <div class="floating-badge" data-aos="zoom-in" data-aos-delay="500">
+                <div class="badge-content">
+                  <i class="bi bi-award"></i>
+                  <div class="badge-text">
+                    <span class="badge-title">Quality Certified</span>
+                    <span class="badge-subtitle">Since 1999</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+  
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Equipements</h2>
+        <p>Voici le catalogue des équipements de ce fournisseur</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+            {% for equipment in equipmentsList %}
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="{% static 'public/assets/img/construction/project-3.webp' %}" alt="Project" class="img-fluid">
+                <div class="project-overlay">
+                  <div class="project-status completed">Plus de détails</div>
+                  <div class="project-actions">
+                    <a href="{% url 'rent' equipment.id %}" class="btn-project">Louer l'équipement</a>
+                  </div>
+                </div>
+              </div>
+              <div class="project-info">
+                <div class="project-category">{{ equipment.category }}</div>
+                <h4 class="project-title">{{ equipment.name }}</h4>
+                <p class="project-description">Modern office complex featuring sustainable design elements and advanced building systems.</p>
+                <div class="project-meta">
+                  <span class="location"><i class="bi bi-geo-alt"></i> Kinshasa</span>
+                  <span class="timeline"><i class="bi bi-calendar"></i> 18 Months</span>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Project Item -->
+
+          {% endfor %}
+
+          
+
+        </div>
+
+      </div>
+
+    </section><!-- /Projects Section -->
+
+  
+
+
+
+    
+
+    {% endblock %}
+
+  </main>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

@@ -1,0 +1,72 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">iConstruction</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    {% block content %}
+    <!-- Hero Section -->
+   <section id="services" class="services section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        
+
+      </div>
+
+    </section><!-- /Services Section -->
+    <section id="about" class="contact section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-main-wrapper">
+                <div class="contact-content">
+                    <div class="contact-form-container" data-aos="fade-up" data-aos-delay="400">
+                        <h3>Ajouter un matériel</h3>
+                        <p>Prière de remplir les champs ci-dessous .</p>
+
+                        <form  method="post" class="" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                            <div class="php-email-form">
+                                 {{form.as_p}}
+                            <div class="hero-actions aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                                <input type="submit" class="btn btn-getstarted" style="background: #e96308;color: #ffffff;" value="Enregistrer">
+                            </div>
+                            </div>
+                           
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section><!-- /About Section -->
+
+    {% endblock %}
+
+  </main>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

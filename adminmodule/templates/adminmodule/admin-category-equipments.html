@@ -1,0 +1,86 @@
+{% extends 'adminmodule/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">iConstruction</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    {% block content %}
+    <!-- Hero Section -->
+   <section id="services" class="services section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <form>
+             <div class="col-md-6 form-group mt-3 mt-md-0">
+                <label>Catégorie</label>
+                    <select class="form-control" name="category" id="category"  required="" onchange="showEquipments({{category.id}})">
+                      {% for category in categoriesList %}
+                      <option value="{{category.id}}">
+                        {{category.name}}
+                      </option>
+                      {% endfor %}
+
+                    </select>
+                  </div>
+        </form>
+      </div>
+
+      <div class="container">
+<table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>#</td><td>Equipement</td> <td>Fournisseur</td> <td>Image</td>
+                </tr>
+            </thead>
+            <tbody>
+               
+                {% for equipment in equipmentsList %}
+                <tr>
+                    <td>{{forloop.counter}}</td><td>{{equipment.name}}</td> <td>{{equipment.owner.first_name}} {{equipment.owner.last_name}}</td> <td><img  style="height: 80px;" src="/media/{{ equipment.image }}"></td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+      </div>
+
+    </section><!-- /Services Section -->
+    {% endblock %}
+
+  </main>
+
+ {% block otherscripts %}
+<script>
+  function showEquipments(){
+        var url = "{% url 'admin-dashboard' %}"
+        var categoryId = document.getElementById("category").value
+        url = url + "categories/"+ categoryId+ '/equipments'
+        window.location = url
+    }
+
+    
+</script>
+ {% endblock %}
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

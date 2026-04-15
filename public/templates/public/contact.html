@@ -1,0 +1,139 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">iConstruction</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+   {% block content %}
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url({% static 'public/assets/img/construction/showcase-2.webp' %});">
+      <div class="container position-relative">
+        <h1>Contact</h1>
+        <p>Mateclic se veut toujours plus proche de ses utilisateurs</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'home' %}">Accueil</a></li>
+            <li class="current">Contact</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-main-wrapper">
+          <div class="map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-cards-container" data-aos="fade-up" data-aos-delay="300">
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-geo-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Adresse</h4>
+                  <p>8721  Boulevard du 30 juin, Kinshasa, DRC</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p>contact@mateclic.com</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-telephone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Téléphone</h4>
+                  <p>+243 85 388 17 48</p>
+                </div>
+              </div>
+
+              <div class="contact-card">
+                <div class="icon-box">
+                  <i class="bi bi-clock"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Heures de service</h4>
+                  <p>Lundi-Vendredi: 9AM - 4PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-container" data-aos="fade-up" data-aos-delay="400">
+              <h3>Nous écrire</h3>
+              <p>N'hésitez pas à nous laisser un message</p>
+
+              <form action="mailto:contact@mateclic.com?subject=Form Submission&body=Message from website:" method="post" enctype="text/plain"  method="post" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" required="">
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Votre adresse email" required="">
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet Optionnel" >
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Votre Message" required=""></textarea>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Votre message a été envoyé,Merci!</div>
+                </div>
+
+                <div class="form-submit">
+                  <button type="submit">Envoyer</button>
+                  <div class="social-links">
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Contact Section -->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  {% endblock %}
+</main>

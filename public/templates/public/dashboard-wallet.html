@@ -1,0 +1,127 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">MATECLIC</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    {% block content %}
+    <!-- Hero Section -->
+   <section id="services" class="services section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="services-grid">
+
+          <div class="service-item featured" data-aos="fade-up" data-aos-delay="150">
+            <div class="featured-badge"><a href="{% url 'dashboard-equipments-list' %}" class="" style="color: white;">17</a></div>
+            <div class="service-number">01</div>
+            <div class="service-icon">
+              <i class="bi bi-buildings"></i>
+            </div>
+            <h3><a href="#" class="service-cta">Mon Solde</a></h3>
+            <p>Montant actuel de votre compte Mateclic</p>
+            <a href="#" class="service-cta">
+              <span>{{balance}}</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-number">02</div>
+            <div class="service-icon">
+              <i class="bi bi-house-heart"></i>
+            </div>
+            <h3>Montant Total Perçu</h3>
+            <p>Connaître tous les matériels en location</p>
+            <a href="#" class="service-cta">
+              <span>{{revenue.gain}}</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item featured" data-aos="fade-up" data-aos-delay="250">
+            <div class="featured-badge">Premium</div>
+            <div class="service-number">03</div>
+            <div class="service-icon">
+              <i class="bi bi-gear-wide-connected"></i>
+            </div>
+            <h3>Montant total des retraits</h3>
+            <p>Sommation de tous les retraits effectués</p>
+            <a href="quote.html" class="service-cta">
+              <span>{{withdraws.totalAmount}}</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-number">04</div>
+            <div class="service-icon">
+              <i class="bi bi-clipboard2-check"></i>
+            </div>
+            <h3>Transactions entrantes</h3>
+            <p>Liste des sommes d'argent entrées dans votre portefeuille</p>
+            <a href="{% url 'dashboard-cashin' %}" class="service-cta">
+              <span>Explore Service</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="350">
+            <div class="service-number">05</div>
+            <div class="service-icon">
+              <i class="bi bi-tools"></i>
+            </div>
+            <h3>Liste des transactions sortantes</h3>
+            <p>Liste des sommes d'argent dépensées ou retirées dans votre portefeuille</p>
+            <a href="{% url 'dashboard-cashout' %}" class="service-cta">
+              <span>Explore Service</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="service-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-number">06</div>
+            <div class="service-icon">
+              <i class="bi bi-arrows-fullscreen"></i>
+            </div>
+            <h3>Site Development</h3>
+            <p>Complete site preparation including excavation, grading, and utility installation for optimal project foundation.</p>
+            <a href="service-details.html" class="service-cta">
+              <span>Explore Service</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+    {% endblock %}
+
+  </main>
+
+ 
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

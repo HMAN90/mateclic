@@ -1,0 +1,42 @@
+
+3°envoie de mails de confirmation de compte 150
+4°pagination 90
+
+
+7°choisir d'afficher sa dénomination sociale ou son nom (personne physique) 60
+
+
+
+
+
+
+
+
+(14°possibiité de migrer de profil client au profil fournisseur)
+
+Ordre des priorités: - 5,6,8,13,9,10,11,12
+                     - 1,2,7,4,3
+
+
+
+
+
+EVALUATION DES TACHES PRIORITAIRES: 520
+EVALUATION DES TACHES RESTANTES: 450
+Taches realisées{
+
+5°voir son argent (fournisseur) dans le dashboard
+6°Afficher l'historique des transactions 60  DEBUT 09H49   réalisation 46
+8°dynamisation du paiement mobileMoney et simulation de réussite de paiement(à compléter) 120 reprise 07H11 réalisation 166
+13°Choix du profil utilisateur à la création : client ou fournisseur 45 debut 18H26------18H58 REPRISE 08H03   REALISATION 49
+9°les labels des formulaires (mettre en francais) 90  début 08H27-----09H17  reprise 09H32 réalisation 68
+10°les messages d'erreurs dans les formulaires de gestion d'utilisateurs 90 debut 10H44----10H55 réalisation 11
+11°mettre le nom de la personne connectée dans le content du menu mon compte 45 début 10H56 réalisation 15
+12°mettre les initiales de la personne à la place du texte mon compte 30 Début 11h13 réalisation 5
+
+
+1°les conditons d'utilisations 90  début 12H18 réalisation 60
+2°la gestion des cookies (autorisation) 60  début 13H38 ---------13H59 reprise 07H58-----08H29 réalisation 52
+
+
+}

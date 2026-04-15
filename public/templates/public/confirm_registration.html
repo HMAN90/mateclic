@@ -1,0 +1,66 @@
+{% extends 'public/base.html' %}
+{% load static %}
+
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">iConstruction</h1>
+      </a>
+
+      {{navmenu} }
+
+      
+
+      <a class="btn-getstarted d-none d-sm-block" href="quote.html">Request Quote</a>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+   {% block content %}
+    <section id="about" class="contact section">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <div class="" style="padding-top: 150px;padding-bottom: 100px;">
+                <div class="row">
+                    <div class="offset-3 col-6 contact-form-container" data-aos="fade-up" data-aos-delay="400">
+                       <div style="width: 100%;padding-bottom: 50px;" >
+                        <img src="{% static 'public/assets/img/logo_mateclic.png'  %}" style="width: 100%;">
+                      </div>
+                      <h3>Confirmation de compte</h3>
+                        <p>{{user.firstName}}  {{ user.lastName}}, un code confirmation a été envoyé dans votre boite e-mail veuillez l'insérer ci-dessous pour valider votre compte .</p>
+                        <span> </span>
+                        <form  method="post" class="" >
+                            {% csrf_token %}
+                            <div class="php-email-form">
+                                
+                                 <input name="confirmationCode" style="margin-bottom: 25px;" id="confirmationCode" placeholder="Code de confirmation" required>
+                            <div class="hero-actions aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                                <input type="submit" class="btn btn-getstarted" style="background: #e96308;color: #ffffff;" value="Confirmer">
+                            </div>
+                            </div>
+                           
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section><!-- /About Section -->
+
+    <!-- Services Section -->
+   
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  {% endblock %}
+</main>

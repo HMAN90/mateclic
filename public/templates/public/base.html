@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Mateclic</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="{% static 'public/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'public/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'public/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'public/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'public/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'public/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'public/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'public/assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iConstruction
+  * Template URL: https://bootstrapmade.com/iconstruction-bootstrap-construction-template/
+  * Updated: Jul 27 2025 with Bootstrap v5.3.7
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename"></h1>
+        <img src="{% static 'public/assets/img/logo_mateclic.png'  %}" style="width: 100%;">
+      </a>
+
+        {% block navmenu %}
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{% url 'home'  %}" class="active">Accueil</a></li>
+          <li><a href="{% url 'equipments'  %}">Equipements</a></li>
+          <li><a href="{% url 'providers'  %}">Fournisseurs</a></li>
+          <li><a href="{% url 'equipments'  %}">Catégories</a></li>
+          
+          <li><a href="{% url 'about'  %}">A propos</a></li>
+        
+          {% if isConnected %}
+          <li class="dropdown"><a href="#"><h3 style="font-size: 22px;">{{ user.first_name|first }}{{ user.last_name|first }}</h3> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><h3 style="color: black;font-size: 18px;padding: 8px;">{{ user.first_name }} {{ user.last_name }}</h3></li>
+              <li><a href="{% url 'dashboard'  %}">Dashboard</a></li>
+              
+              <li><a href="{% url 'dashboard-settings'  %}">Mes infos</a></li>
+              <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+              
+            </ul>
+          </li>
+          {% else %}
+      <a class="btn-getstarted d-none d-sm-block" href="{% url 'login'  %}">Connexion</a>
+   
+        {% endif %}
+          
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      {% endblock %}
+
+      {% block connected  %}
+
+        
+
+      {% endblock %}
+    </div>
+  </header>
+
+  <main class="main" style="min-height: 600px;">
+
+    {% if noPadding  %}
+        <div ></div>
+      {% else %}
+         <div style="padding: 20px;"></div>
+      {% endif %}
+
+    {% block content %}
+      
+    {% endblock %}
+    
+
+
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container">
+      <div class="row gy-5">
+
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <a href="index.html" class="logo d-flex align-items-center mb-3">
+              <span class="sitename">Mateclic</span>
+            </a>
+            <p class="tagline">Louez  votre matériel en un clic</p>
+
+            <div class="social-links mt-4">
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="footer-links-grid">
+            <div class="row">
+              <div class="col-6 col-md-4">
+                <h5>Liens rapides</h5>
+                <ul class="list-unstyled">
+                  <li><a href="#">Accueil</a></li>
+                  <li><a href="#">A propos</a></li>
+                  <li><a href="#">Contact</a></li>
+                 
+                </ul>
+              </div>
+              <div class="col-6 col-md-4">
+                <h5>Services</h5>
+                <ul class="list-unstyled">
+                  <li><a href="#">Location de matériel</a></li>
+                  <li><a href="#">Promotions</a></li>
+                  <li><a href="#">Marketing digital</a></li>
+                  
+                </ul>
+              </div>
+              <div class="col-6 col-md-4">
+                <h5>Support</h5>
+                <ul class="list-unstyled">
+                  <li><a href="#">Nous contacter</a></li>
+                  
+                  <li><a href="#">Politique de confidentialité</a></li>
+                  <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="footer-cta">
+            <h5>Let's Connect</h5>
+            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="footer-bottom-content">
+              <p class="mb-0">© <span class="sitename">Mateclic</span>. All rights reserved.</p>
+              <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you've purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                Designed by <a href="https://bootstrapmade.com/">Henoc Manyala</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+  
+  <div class="row" id="cookiesBanner" style="background-color: 
+ color-mix(in srgb, var(--background-color), transparent 90%);position: fixed;bottom: 10px;z-index: 8000;">
+    <p class="col-md-3" style="color: #ffffff;margin-left: 20px;">
+      Les cookies nous permettent d'améliorer votre expérience, de personnaliser les publicités en fonction de vos centres d'intérêt et d'optimiser notre site web.
+      <br>
+      <a class="btn-getstarted" id="btAcceptCookies" style="background-color: rgb(233, 99, 8);color: #ffffff;"> Accepter </a>
+
+    </p>
+    <div class="col-md-3"></div>
+    
+    <div >
+          </div>
+  </div>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'public/assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'public/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'public/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'public/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'public/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'public/assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'public/assets/js/main.js' %}"></script>
+
+</body>
+ {% block otherelements %}
+      
+ {% endblock %}
+
+</html>
